@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Bot con IA en Local</title>
+    
+    <!-- Estilos oficiales de la burbuja de chat de n8n -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+</head>
+<body style="background-color: #f4f4f9; font-family: Arial, sans-serif; text-align: center; padding-top: 50px;">
+
+    <h1>¡Web Local</h1>
+    <p>haz clic en la burbuja para hablar con tu agente de IA.</p>
+
+    <!-- Script que levanta el chat flotante conectado a tu webhook -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://ericc.app.n8n.cloud/webhook/b5d71465-a652-4c23-82b0-c59597f990fb/chat',
+            target: '#n8n-chat',
+            mode: 'window',
+            showWelcomeScreen: true,
+            initialMessages: [
+                '¡Hola! Soy tu agente de IA corriendo en n8n. ¿En qué te puedo ayudar hoy?'
+            ],
+            i18n: {
+                es: {
+                    title: 'Asistente IA',
+                    subtitle: 'Pregúntame lo que quieras',
+                    footer: '',
+                    inputPlaceholder: 'Escribe tu mensaje...',
+                }
+            }
+        });
+    </script>
+</body>
+</html>
