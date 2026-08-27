@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenos Aires Barbershop - Estilo y Tradición</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #111111;
+            --accent-color: #c5a059; /* Dorado elegante estilo barbería */
+            --text-color: #e2e8f0;
+            --bg-color: #0b0b0b;
+            --card-bg: #161616;
+            --whatsapp-color: #25d366;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        header h1 span {
+            color: var(--accent-color);
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #cbd5e1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Grid de Servicios / Cortes */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-card h3 span.price {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: #94a3b8;
+            margin-bottom: 0;
+        }
+
+        /* Galería de Estilos */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            border: 1px solid #222;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-item h4 {
+            margin: 15px 0 5px 0;
+            color: #ffffff;
+        }
+
+        .gallery-item p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            padding: 0 10px 15px 10px;
+            margin: 0;
+        }
+
+        /* Caja de Información y CTA */
+        .info-box {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            margin-bottom: 3rem;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: background 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: scale(1.05);
+        }
+
+        /* Botón flotante de WhatsApp personalizado */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 95px; /* Separado del chat de n8n para que no se choquen */
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #050505;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Buenos Aires <span>Barbershop</span></h1>
+        <p>Cortes clásicos, barbería moderna, barba y la mejor atención.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>✂️ Corte Clásico / Moderno <span class="price">$</span></h3>
+                <p>Fade, pompadour, crop o el estilo que prefieras adaptado a tu tipo de rostro y cabello con terminación a navaja.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>🧔 Arreglo de Barba <span class="price">$</span></h3>
+                <p>Perfilado profesional con toallas calientes, aceites esenciales, bálsamo y acabado perfecto a navaja.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>🔥 Combo VIP (Corte + Barba) <span class="price">$</span></h3>
+                <p>La experiencia completa de barbería. Incluye lavado, corte, perfilado de barba, vapor y bebidas de cortesía.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Estilos & Tendencias</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=500&q=80" alt="Corte Fade Moderno">
+                <h4>Fade & Modernos</h4>
+                <p>Degradados impecables y texturas cuidadas.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=500&q=80" alt="Barba perfilada">
+                <h4>Barba Tradicional</h4>
+                <p>Cuidado meticuloso y perfilado de precisión.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=500&q=80" alt="Estilo Clásico">
+                <h4>Clásicos Elegantes</h4>
+                <p>Estilos formales atemporales con acabados prolijos.</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2 style="color: var(--accent-color); margin-top: 0;">¿Querés reservar un turno?</h2>
+            <p>Escribinos directamente por WhatsApp para coordinar tu horario o consulta con nuestro Asistente Virtual las 24 horas abajo a la derecha.</p>
+            <a href="https://wa.me/5491176232124?text=Hola!%20Quisiera%20consultar%20por%20turnos%20disponibles%20en%20la%20barberia." class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Hablar por WhatsApp (+54 9 11 7623-2124)
+            </a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5491176232124?text=Hola!%20Quisiera%20consultar%20por%20turnos%20en%20la%20barberia." class="whatsapp-float" target="_blank" title="Escribinos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Buenos Aires Barbershop. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://ericc.app.n8n.cloud/webhook/b5d71465-a652-4c23-82b0-c59597f990fb/chat',
+            target: '#n8n-chat',
+            mode: 'window',
+            showWelcomeScreen: true,
+            initialMessages: [
+                '¡Bienvenido a Buenos Aires Barbershop 💈! ¿En qué podemos ayudarte hoy? ¿Buscas turno para corte o arreglo de barba?'
+            ],
+            i18n: {
+                es: {
+                    title: 'Asistente Barbershop',
+                    subtitle: 'Consultas y turnos con IA',
+                    footer: 'Atención personalizada',
+                    inputPlaceholder: 'Escribe tu consulta o pedido de turno...',
+                }
+            }
+        });
+    </script>
+</body>
+</html>
